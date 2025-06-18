@@ -1,0 +1,6 @@
+- This is a small aside to explain how javascript is used within HTML code
+- JavaScript code can be embedded within a <script></script> element in HTML code
+- This script element is placed at the bottom of the body as we want our browser to finish creating the webpage before running the javascript code
+- As discussed before, the JavaScript code serves in making the webpage interactive
+- We can also use the onclick attribute within an opening HTML tag and add JavaScript code within the quotes as the attribute value
+- Now, the server will run the javascript code whenever the html element has been clicked
