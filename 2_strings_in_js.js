@@ -35,4 +35,19 @@ typeof 6;
 // TEMPLATE STRINGS
 // Template strings have some special uses
 // The first such use is INTERPOLATION
-// Interpolation means that you cannsert a value directly into a string
+// Interpolation means that you can insert a value directly into a string
+// This is done with the help of the ${} where we can insert the value we want inside the curly braces
+// E.g
+`hello, I'm ${5+7} years old`;
+
+// MULTI-LINE STRINGS
+// We can use backticks to create strings that span multiple lines
+// This feature is only available for template strings
+// These multiline strings can be used heavily in web dev
+`multi
+line
+string
+`
+
+// A general rule of thumb is to use single quotes for creating all kinds of strings unless a particuls use case demands
+// using interpolation or multiline strings in which case we use backticks to create templatte strings
