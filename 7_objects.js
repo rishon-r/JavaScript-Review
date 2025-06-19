@@ -142,6 +142,9 @@ console.log(parsedBook);
 // This means the data you save in localStorage stays even after the user closes or reloads the browser tab or shuts down their computer.
 
 // Example of common use:
+
+/*
+
 // Save data
 localStorage.setItem("username", "Rishon");
 
@@ -157,5 +160,57 @@ localStorage.clear();
 
 // Note here that stored data is string-based i.e localStorage can only store strings
 // This however means that it can store JSON as JSON data is of string type
+*/
 
 
+// THE VALUE null
+// null is a falsy value in Javascript
+// it is used to represent the absence of a value similar to undefined
+// We use null when we intentionally want something to be empty
+// However, in most cases null and undefined work in a similar way
+
+// AUTO-BOXING
+// We know that objects can have properties and methods
+// Other values can also have properties and methods
+// Example
+console.log('hello'.length)
+console.log('hello'.toUpperCase())
+// As we can see from above Strings have certain methods and properties
+// This is due to a JavaScript feature known as Auto-Boxing
+// Auto-boxing (also called automatic wrapping) is a mechanism where primitive values like strings, numbers, and booleans are temporarily converted into object wrappers so you can call methods on them.
+// This happens even though primitive typesmlike strings aren't objects in JS
+// Note however that autoboxing does not work with null and undefined and in this case JS will simply just return an error
+
+// OBJECTS AS REFERENCES
+// Note that in JS, objects are references
+// In JavaScript, objects (and arrays) are not stored directly in variables.
+// Instead, the variable holds a reference (a pointer) to the object’s location in memory.
+// That means if two variables refer to the same object, changes through one are visible through the other.
+
+const a = { name: "Rishon" };
+let b = a;   // b points to the same object as a
+
+b.name = "Alice";
+
+console.log(a.name);  // 👉 "Alice" (not "Rishon")
+
+// Why? Because a and b both point to the same object in memory. You didn't copy the object — you just copied the reference (like a shortcut).
+// This happens even though we created the original object with const
+
+// COMPARISON OF OBJECTS
+// We cannot compare objects directly as they are references
+// Example:
+console.log(a===b); 
+// will return false as this will compare the references (they are different references) and not the values (they have the same values)
+
+
+// DESTRUCTURING
+// Destructuring in JavaScript is a concise and powerful way to unpack values from arrays or properties from objects into individual variables.
+// Destructuring is syntactic sugar that lets you pull values out of arrays or objects and assign them to variables in a single line.
+// Example:
+
+let person = { name: "Alice", age: 25 };
+let { name, age } = person;
+
+console.log(name); // "Alice"
+console.log(age);  // 25
