@@ -73,6 +73,8 @@ console.log(typeof newerNum);
 let phrase="Hello";
 console.log(typeof phrase);
 
+// BEST PRACTICE WHEN CREATING VARIABLES: Use let only when you plan on changing/updating the value of the variable
+// otherwise it's always better to use const
 
 
 
