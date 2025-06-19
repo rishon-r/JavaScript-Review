@@ -17,3 +17,4 @@ console.log('Hello World');
 // You can log one or more values.
 // It can log strings, numbers, objects, arrays, functions, or results of expressions.
 // Syntax: console.log(value1, value2, ..., valueN);
+// Above expression will print all values mentioned with a space in between them
