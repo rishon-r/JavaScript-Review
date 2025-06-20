@@ -214,3 +214,15 @@ let { name, age } = person;
 
 console.log(name); // "Alice"
 console.log(age);  // 25
+
+// SHORTHAND PROPERTY
+// Shorthand property syntax allows you to create object properties using just variable names, if the variable name and the property name are the same.
+/* Example
+let name = "Rishon";
+let age = 20;
+
+let person = {
+  name: name,
+  age: age
+};
+*/
