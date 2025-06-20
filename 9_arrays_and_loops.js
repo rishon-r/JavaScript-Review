@@ -39,5 +39,58 @@ console.log(tryArray);
 tryArray.splice(0,2); // Helps us remove a number of elements from an array starting at an index. First parameter is index, second parameter is the number of elements to be removed
 console.log(tryArray)
 
+// LOOPS
+
+// FOR LOOP
+// For loop is a countable loop in JS
+// It is implemented in a manner very similar to for loops in C
+// Syntax:
+/*
+for (initialization; condition; increment) {
+  // code block to run
+}
+*/
+// Example:
+// for loop to print numbers from 1 to 10
+for (let i=1; i <= 10; i++){
+  console.log(i);
+}
+
+// WHILE LOOP
+// While loop in JS is a conditional loop
+// It runs as long as some condition remains true
+// Syntax:
+/*
+for (initialization; condition; increment) {
+  // code block to run
+}
+*/
+// Example:
+// while loop to print numbers from 1 to 10
+let x=1;
+while (x<=10){
+  console.log(x);
+  x++;
+}
+
+// ACCUMULATOR PATTERN
+// The accumulator pattern is a common programming pattern where you use a variable to keep a running total or result while looping through data (like arrays or strings).
+/* HOW IT WORKS
+1. Initialize an accumulator variable (like sum, total, result, etc.)
+2. Loop through a data structure
+3. Update the accumulator on each iteration
+4. Use the final value after the loop ends
+*/
+
+// Example: (Calculating sum of elements in an array)
+let numbers = [10, 20, 30, 40];
+let total = 0; // Step 1: accumulator
+
+for (let i = 0; i < numbers.length; i++) {
+  total += numbers[i]; // Step 3: update accumulator
+}
+
+console.log("Total is:", total); // Output: 10
+
 
 
