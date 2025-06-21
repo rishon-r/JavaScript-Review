@@ -104,4 +104,74 @@ names.forEach(function(value, i, array){
   console.log("Name", i, "in array:", array, "is", value);
 })
 
+// In forEach note that the key disadvantage is that break and continue cannot be used
+// however, continue can be mimicked in the function body passed to forEach in the form of a return statement
+// however, no such analogue for break exists and if we are implementing a feature that needs break it is better to stick to a standard for loop
 
+// ARROW FUNCTIONS
+// An arrow function is a shorthand way to write a function using the => syntax.
+// Traditional function
+function addNums(a, b) {
+  return a + b;
+}
+console.log(addNums(1,3));
+// Arrow function
+const addNewNums = (a, b) => {
+  return a + b;
+}
+console.log(addNewNums(1,3));
+// If your function has just one expression, you can omit the return and {}:
+
+const addThreeNums = (a,b,c) => a+b+c;
+console.log(addThreeNums(3,2,1));
+
+// The parentheses also become optional if there is only one parameter that the function is taking
+const square = x => x * x;
+console.log(square(4)); // 16
+
+// When passing a function as a parameter to another fnction (i.e a callback function), it iss advised to use arrow functions
+// Example
+names.forEach((value, i, array) => {
+  console.log("Name", i, "in array:", array, "is", value);
+})
+
+// USEFUL ARRAY METHODS: .map() AND .filter()
+
+// .map() creates a new array by applying a function to each element of the original array.
+// It transforms each item but does not change the original array.
+
+/* SYNTAX:
+const newArray = originalArray.map(function(element, index, array) {
+  // return transformed value
+});
+*/
+// element: current element being processed
+// index (optional): index of the current element
+// array (optional): the original array
+// returns: a new array with transformed values
+// Example:
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled); // [2, 4, 6, 8]
+
+// .filter() creates a new array that only includes the elements that pass a condition (i.e., for which the callback returns true).
+/*
+SYNTAX:
+
+const newArray = originalArray.filter(function(element, index, array) {
+  // return true to keep the element
+});
+
+// returns: a new array with only the elements that match the condition
+*/
+
+// EXAMPLE:
+
+const nums = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+console.log(evenNumbers); // [2, 4, 6]
+
+ 
+// 

@@ -102,6 +102,83 @@ console.log('25'- 5);
 // Use the src attribute of script tag to link to a separate javascript file
 // you can also use multiple script elements with src attributes to split your JavaScript code into different files
 
+// THE .addEventListener() METHOD
+// The .addEventListener() method in JavaScript is used to attach an event handler to an HTML element. 
+// It allows you to run a specific piece of code (a callback function) when a particular event (like a click, key press, or mouse move) happens on that element.
+// In a way it is a JS way to replcae adding onclick or onkeydown attributes in HTML tags
+// SYNTAX: element.addEventListener(event, callback, useCapture);
+// event: A string representing the type of event (e.g., "click", "mouseover", "keydown")
+// callback: The function that will run when the event occurs.
+// useCapture (optional): A boolean that determines whether the event is captured in the capture phase (true) or bubble phase (false). 
+// You can attach multiple event listeners to the same element without overwriting previous ones.
+// EXAMPLE
+/*
+HTML:
+<button id="myButton">Click me</button>
 
+JS:
+document.getElementById("myButton").addEventListener("click", function () {
+  alert("Button was clicked!");
+});
+*/
+
+/* 
+AN EXAMPLE WITH A NAMED FUNCTION:
+function greet() {
+  console.log("Hello there!");
+}
+
+document.getElementById("myButton").addEventListener("click", greet);
+
+*/
+
+// The event parameter in an event listener refers to an Event object that is automatically passed to the callback function when an event occurs.
+// It contains details about the event — like what type of event happened, which element triggered it, keyboard or mouse info, etc.
+
+/*
+USEFUL EVENT PROPERTIES:
+
+event.type	The type of event (e.g., "click", "keydown").
+event.target	The actual element that triggered the event.
+event.currentTarget	The element the listener is attached to.
+event.preventDefault()	Stops the default browser behavior (e.g., following a link).
+event.stopPropagation()	Prevents the event from bubbling up to parent elements.
+event.key	For keyboard events: which key was pressed.
+event.clientX / event.clientY	Mouse coordinates relative to the viewport.
+
+EXAMPLE: 
+
+document.querySelector("button").addEventListener("click", function(event) {
+  console.log("You clicked:", event.target); // Logs the clicked button
+})
+
+
+*/
+// The event object is like a report of what just happened — what triggered the event, how it happened, and any relevant context (mouse, keyboard, etc.). It gives you full control over how to respond
+
+// THE .removeEventListener() METHOD
+// Absolutely! .removeEventListener() is the counterpart to .addEventListener() in JavaScript.
+// It’s used to detach a previously attached event listener from an element. This stops the event from triggering the function when it occurs.
+// SYNTAX: element.removeEventListener(event, callback, useCapture);
+// parameters (must match the ones used in .addEventListener()):
+// event: The name of the event (e.g., "click").
+// callback: The same function reference that was originally passed to .addEventListener().
+// useCapture (optional): Must match the one used when the listener was added (usually false).
+// NOTE: You must pass the same function reference to removeEventListener() — otherwise, it won’t work.
+// So, this won't work if anonymous functions are passed
+/*
+EXAMPLE:
+function sayHello() {
+  console.log("Hello!");
+}
+
+const button = document.getElementById("myButton");
+
+// Add the event listener
+button.addEventListener("click", sayHello);
+
+// Remove the event listener
+button.removeEventListener("click", sayHello);
+*/
 
 
