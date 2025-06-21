@@ -2,3 +2,32 @@ body{
   font-family: Arial, sans-serif;
 }
 
+.add-button {
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(10, 146, 0);
+  color: whitesmoke ;
+  
+}
+
+.enter-task{
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.delete-button {
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: crimson;
+  color: whitesmoke ;
+  
+}

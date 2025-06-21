@@ -30,8 +30,8 @@ console.log(Array.isArray(tryArray)); // This will return a boolean value based 
 
 // Since we now know that an Array is an object, we see that there exist properties and methods that can be run on arrays
 // Some examples are given below
-a= tryArray.length; // will return length of array
-console.log(a);
+let len= tryArray.length; // will return length of array
+console.log(len);
 
 console.log(tryArray);
 tryArray.push(15); // Helps us add an element toi the back of an array
@@ -92,5 +92,62 @@ for (let i = 0; i < numbers.length; i++) {
 
 console.log("Total is:", total); // Output: 10
 
+// MORE ON ARRAYS
+// ARRAYS in JS are REFERENCES similar to OBJECTS (probably because arrays are objects)
+// When you create an array in JavaScript, you're not directly storing the array in the variable — you're storing a reference (i.e., a pointer) to the array's location in memory.
+// So when you assign one array variable to another, you're not creating a copy — you're just pointing both variables to the same array in memory
+// Example:
+let arr1 = [1, 2, 3];
+let arr2 = arr1;
+
+arr2[0] = 99;
+
+console.log(arr1); // [99, 2, 3]
+console.log(arr2); // [99, 2, 3]
+
+// The .slice() method
+// array.slice(start, end) returns a shallow copy of a portion of the array, from the start index up to but not including the end index.
+// While doing this, it does not modify the original array
+let fruits = ["apple", "banana", "cherry", "date"];
+
+let sliced = fruits.slice(1, 3);
+console.log(sliced);       // ["banana", "cherry"]
+console.log(fruits);       // ["apple", "banana", "cherry", "date"] (unchanged)
+// Note that it starts at index 1 and goes upto but not including the end index 3
+
+// Also, using the slice like this does not modify the original array when we update the new array
+let numArr1= [1,3,5,7];
+let numArr2= numArr1.slice();
+numArr2[1]=2;
+console.log(numArr1);
+console.log(numArr2);
+
+// DESTRUCTURSING AN ARRAY  
+const nums=[1,2,3]
+
+const [a,b,c]=nums; // This is the destructuring step
+console.log(a,b,c); // a gets the first element, b gets the second element, c gets the third element
+
+// break & continue
+// break and continue are two important control flow statements in JavaScript, especially when working with loops.
+// break is used to immediately stop a loop, the control jumps outside the loop
+// continue spiks one iteration, but keeps looping
+// continue skips the current loop iteration and moces directly to the next one
+// Example of break: (below code prints numbers from 0 to 4)
+for (let i = 0; i < 10; i++) {
+  if (i === 5) {
+    break;
+  }
+  console.log(i);
+}
+// Example of continue: 
+// When i === 2, continue skips the console.log(i) and jumps to the next loop iteration
+// So the below code prints number 0, 1, 3 and 4
+
+for (let i = 0; i < 5; i++) {
+  if (i === 2) {
+    continue };
+  console.log(i);
+}
 
 
