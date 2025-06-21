@@ -174,4 +174,6 @@ const evenNumbers = numbers.filter(num => num % 2 === 0);
 console.log(evenNumbers); // [2, 4, 6]
 
  
-// 
+// CLOSURE
+// If a function has access to a value, it will always have access to that value
+// The value gets packaged together or enclosed within that function
