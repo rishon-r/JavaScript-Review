@@ -9,6 +9,8 @@
 // The data structure can be viewed in the products.js
 
 // STEP 2: GENERATING THE HTML 
+import {cart, addToCart} from '../data/cart.js'
+import {products} from '../data/products.js'
 
 let productsHTML='';
 
@@ -71,6 +73,17 @@ document.querySelector('.js-products-grid').innerHTML= productsHTML; // This wil
 
 const addCartButtons= document.querySelectorAll('.js-add-to-cart')
 
+
+
+function updateCartQuantity(){
+  let cartTotal=0;
+  cart.forEach(item => {
+    cartTotal+=item.quantity;
+    })
+    let cartQuantity= document.querySelector('.js-cart-quantity');
+    cartQuantity.innerHTML=cartTotal;
+}
+
 addCartButtons.forEach((button) => {
   button.addEventListener('click', () => {
     // To know which item corresponds to a particular button, we use the data attribute of an HTML tag
@@ -78,32 +91,9 @@ addCartButtons.forEach((button) => {
     // The .dataset property of an HTML element allows us to access all data attributes of an HTML tag
     // Note that the data attribute name will get converted from kebab case to camel case
 
-    let matchingItem;
     const productId = button.dataset.productId;
+    addToCart(productId);
+    updateCartQuantity();
 
-    cart.forEach((item) => {
-      if (item.productId === productId) {
-        matchingItem = item;
-      }
-    });
-
-    if (matchingItem) {
-      matchingItem.quantity += 1;
-    } else {
-      cart.push({
-        productId,
-        quantity: 1
-      });
-      console.log(cart);
-    }
-    let cartTotal=0;
-    cart.forEach(item => {
-      cartTotal+=item.quantity;
-    })
-    
-    
-
-    let cartQuantity= document.querySelector('.js-cart-quantity');
-    cartQuantity.innerHTML=cartTotal;
   });
 });
