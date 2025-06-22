@@ -57,10 +57,44 @@ products.forEach(product => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
             Add to Cart
           </button>
         </div>`      
 });
 
-document.querySelector('.js-products-grid').innerHTML= productsHTML;
+document.querySelector('.js-products-grid').innerHTML= productsHTML; // This will render the required HTML
+
+// STEP 3: Make the website interactive
+// So far, all the add to cart buttons do not function and are instead just dummy placeholders
+// We now want to make them functional or interactive
+
+const addCartButtons= document.querySelectorAll('.js-add-to-cart')
+
+addCartButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // To know which item corresponds to a particular button, we use the data attribute of an HTML tag
+    // data attributes have to start with the data- after which we can give it any name. We use kebab case to represent it
+    // The .dataset property of an HTML element allows us to access all data attributes of an HTML tag
+    // Note that the data attribute name will get converted from kebab case to camel case
+
+    let matchingItem;
+    const productId = button.dataset.productId;
+
+    cart.forEach((item) => {
+      if (item.productId === productId) {
+        matchingItem = item;
+      }
+    });
+
+    if (matchingItem) {
+      matchingItem.quantity += 1;
+    } else {
+      cart.push({
+        productId,
+        quantity: 1
+      });
+      console.log(cart);
+    }
+  });
+});
