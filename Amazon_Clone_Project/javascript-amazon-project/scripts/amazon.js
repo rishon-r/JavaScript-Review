@@ -96,8 +96,14 @@ addCartButtons.forEach((button) => {
       });
       console.log(cart);
     }
+    let cartTotal=0;
+    cart.forEach(item => {
+      cartTotal+=item.quantity;
+    })
+    
+    
+
     let cartQuantity= document.querySelector('.js-cart-quantity');
-    cartTotal+= 1;
     cartQuantity.innerHTML=cartTotal;
   });
 });
