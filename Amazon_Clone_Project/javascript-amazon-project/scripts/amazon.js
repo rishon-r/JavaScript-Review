@@ -96,5 +96,8 @@ addCartButtons.forEach((button) => {
       });
       console.log(cart);
     }
+    let cartQuantity= document.querySelector('.js-cart-quantity');
+    cartTotal+= 1;
+    cartQuantity.innerHTML=cartTotal;
   });
 });
