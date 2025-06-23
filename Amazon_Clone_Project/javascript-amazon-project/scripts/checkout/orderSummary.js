@@ -5,6 +5,7 @@ import dayJS from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
 // The way we import dayJS without {} is called a DEFAULT EXPORT, it is another way of exporting used when we only want to export one thing
 // We can make a function/object available for default export by adding the keyword default after export before function/object name
 import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js'
+import { renderPaymentSummary } from './paymentSummary.js'
 
 export function renderOrderSummary(){
 
@@ -91,6 +92,8 @@ export function renderOrderSummary(){
       removeFromCart(productId);
       document.querySelector(`.js-cart-item-${productId}`).remove();
 
+      renderPaymentSummary();
+
     }
     )
   })
@@ -137,6 +140,7 @@ export function renderOrderSummary(){
         const {productId, deliveryOptionId} = element.dataset;
         updateDeliveryOption(productId, deliveryOptionId);
         renderOrderSummary(); // A function can call/ re-reun itself, this is called RECURSION
+        renderPaymentSummary();
       })
     }
   )
