@@ -1,10 +1,10 @@
 import {cart, removeFromCart, updateDeliveryOption} from '../../data/cart.js'
-import {products} from  '../../data/products.js'
+import {products, getProduct} from  '../../data/products.js'
 import {formatCurrency} from  '../utils/money.js'
 import dayJS from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
 // The way we import dayJS without {} is called a DEFAULT EXPORT, it is another way of exporting used when we only want to export one thing
 // We can make a function/object available for default export by adding the keyword default after export before function/object name
-import {deliveryOptions} from '../../data/deliveryOptions.js'
+import {deliveryOptions, getDeliveryOption} from '../../data/deliveryOptions.js'
 
 export function renderOrderSummary(){
 
@@ -14,23 +14,11 @@ export function renderOrderSummary(){
   cart.forEach((cartItem) => {
     const productId= cartItem.productId;
 
-    let matchingProduct;
-
-    products.forEach((product) => {
-      // This process is known as DE-DUPLICATING or NORMALIZING our data
-      // Normalizing means restructuring and organizing data to:
-      // Reduce redundancy (repeating info)
-      // Ensure consistency
-      //  Make data easier to manage and query
-
-      if (product.id === productId){
-        matchingProduct= product;
-      }
-    })
+    const matchingProduct = getProduct(productId);
 
     const deliveryOptionId= cartItem.deliveryOptionId;
 
-    let deliveryOption;
+    let deliveryOption= getDeliveryOption(deliveryOptionId);
 
     deliveryOptions.forEach((option) => {
       if (option.id===deliveryOptionId){

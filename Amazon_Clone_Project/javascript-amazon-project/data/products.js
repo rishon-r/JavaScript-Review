@@ -1,3 +1,20 @@
+export function getProduct(productId){
+  let matchingProduct;
+
+  products.forEach((product) => {
+      // This process is known as DE-DUPLICATING or NORMALIZING our data
+      // Normalizing means restructuring and organizing data to:
+      // Reduce redundancy (repeating info)
+      // Ensure consistency
+      //  Make data easier to manage and query
+
+      if (product.id === productId){
+        matchingProduct= product;
+      }
+  })
+  return matchingProduct;
+}
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
