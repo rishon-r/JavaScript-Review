@@ -1,0 +1,20 @@
+- The MVC (Model-View-Controller) design pattern is a widely used architectural pattern in software development, especially for designing user interfaces.
+- It helps separate concerns, making code organized, modular, and easier to maintain or scale.
+- MVC divides an application into three core components
+  A. Model -Saves and manages data, manages business logic, and the rules of the application
+  B. View - Handles the presentation layer – what the user sees and interacts with
+  C. Controller - Acts as an intermediary between Model and View – it handles user input, updates the model, and refreshes the view
+
+- MVC Workflow:
+
+  1. User interacts with the View (e.g., clicks a button).
+
+  2. The Controller receives input and decides what to do.
+
+  3. The Controller updates the Model (e.g., changes data or business logic).
+
+  4. The Model notifies the View that data has changed.
+
+  5. The View updates itself to reflect the new state of the Model.
+
+
