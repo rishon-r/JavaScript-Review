@@ -1,4 +1,4 @@
-import {formatCurrency} from '../scripts/utils/money.js'
+import {formatCurrency} from '../../scripts/utils/money.js'
 
 // We practice AUTOMATED TESTING here
 // The situation you are testing for is called TESTING
