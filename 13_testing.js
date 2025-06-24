@@ -29,3 +29,15 @@
 // TESTING FRAMEWORK
 // A Testing Framework is an external library that helps us write tests easier
 // For now, we will use the popularr testing framework, Jasmine
+// In Jasmine, spec means test
+
+// TEST COVERAGE - how much of the code is being tested
+// We aim to have as much test coverage as possible
+// This is why for example when testing an if statemnet, we test for all possible outcomes of it (i.e the else if cases and else cases)
+
+// FLAKY TEST- A test that sometimes passes and sometimes fails (even without changing the code)
+
+// MOCKS - A mock allows us to replace a method with a fake version. We can make thiss fake version do anything we want
+// Jasmine provides us with the ability to use this feature
+// We use the spyOn functtion to do this: view the tests in cartTest.js in order to see how this is done
+// Note that a mock is valid only for one test, upon which we will have to create new mocks for further tests
