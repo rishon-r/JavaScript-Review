@@ -41,3 +41,8 @@
 // Jasmine provides us with the ability to use this feature
 // We use the spyOn functtion to do this: view the tests in cartTest.js in order to see how this is done
 // Note that a mock is valid only for one test, upon which we will have to create new mocks for further tests
+
+// UNIT TEST- Tests 1 piece of code
+
+// INTEGRATION TEST- Tests many units/pieces of code that are working together
+// An integration test, we usually test for two things: A. How the page looks,  B. How the page behaves
