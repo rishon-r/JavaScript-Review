@@ -267,7 +267,7 @@ strictFunction.call('hello'); // The call helps us set the value of the this key
 const obj = {
   name: "Bob",
   greet: () => {
-    console.log(this.name); // ❌ undefined (or error in strict mode)
+    console.log(this.name); // undefined (or error in strict mode)
   }
 };
 
