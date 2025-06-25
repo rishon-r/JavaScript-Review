@@ -11,3 +11,42 @@
 // Some developers feel that this makes the code more intuitive
 
 // Another important reason to use objects is that it is easy to create multiple objects
+// We can either copy paste the code of an object, which is laborious and not the standard practice
+// or create a function that generates objects
+// another way of generating objects is through the help of a class
+
+// CLASS
+// A class is basically an object generator
+// They are cleaner and have more features than using functions
+// We say that an object is an instance of a class
+// Benefits of using CLASSES:
+// A class actually looks like the object it creates
+// It is cleaner than using a function
+// Classes also have some extra features for OOP
+// View cart-class.js in data for syntax on how to create classes and use of other important class features suchas as instanceof
+
+// THE this KEYWORD
+// refers to that particular instance of a class
+
+// CONSTRUCTORS
+// A constructor is an extra feature that classes possess for OOP
+// It allows us to run some setup code after creating an object
+// A constructor lets us put this set up code inside a class
+// It ca be viewed as a specialmethod for setting up instances that is called automatically when you set up a new object using a class
+// Some rules: The constructor method should be named constructor, it cannot return any value
+
+// SYNTAX:
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hi, I'm ${this.name}, and I'm ${this.age} years old.`);
+  }
+}
+
+const p1 = new Person("Alice", 30);
+p1.greet(); // Hi, I'm Alice, and I'm 30 years old.
+
