@@ -50,3 +50,8 @@ class Person {
 const p1 = new Person("Alice", 30);
 p1.greet(); // Hi, I'm Alice, and I'm 30 years old.
 
+// PRIVATE PROPERTIES AND METHODS
+// Classes allow us to make a particular method or property private- i.e it is only available for acess within that class
+// You add a # symbol before naming property or method in order to make it private
+// A method or property in a class that can be acessed from outside that class is called a PUBLIC METHOD/PROPERTY
+// NOTE: field and property refer to the same thing and can be used interchangeably
