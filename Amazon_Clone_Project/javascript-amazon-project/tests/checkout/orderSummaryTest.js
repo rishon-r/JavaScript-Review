@@ -1,9 +1,17 @@
 import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js'
 import {cart, loadFromStorage } from "../../data/cart.js";
+import { loadProducts } from '../../data/products.js';
 
 describe('TEST SUITE: renderOrderSummary()', () => {
 
-  beforeEach(() => { // This is called a HOOk, runs some code for every test
+  beforeAll((done)=> {
+    loadProducts(() => {
+      done(); // done() function is provided by Jasmine, lets us control when to go to the next step
+    });
+  })
+
+
+  beforeEach(() => { // This is called a Hook, runs some code for every test
     spyOn(localStorage, 'setItem');
 
     document.querySelector('.js-test-container').innerHTML =`
