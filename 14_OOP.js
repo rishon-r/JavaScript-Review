@@ -240,3 +240,45 @@ executePrintJob(image);   // Output: Printing image file
 // BUILT IN CLASSES
 // These are classes that are provided by the language
 // An example of abuilt in class is Date()
+
+const date= new Date()
+console.log(date);
+const localTime= date.toLocaleTimeString();
+console.log(localTime);
+
+// MORE INFO ON THE this KEYWORD
+// The this keyword is usually used in conjunction with an object
+// However, it need not be used that way
+// When you use this without an object, its value is usually undefined
+// Example:
+console.log(this);
+// Originally, this represented the window
+// But this caused confusion and since then this has been set to undefined within a module
+// this is a dynamic reference to the execution context — i.e., the object that is currently "owning" the code being executed.
+// The value of this depends entirely on how a function is called.
+
+function strictFunction() {
+  console.log(this); // undefined
+}
+strictFunction();
+strictFunction.call('hello'); // The call helps us set the value of the this keyword within a function
+
+// Within an arrow function, this is undefined. An arrow function basically does not change the value of 'this'
+const obj = {
+  name: "Bob",
+  greet: () => {
+    console.log(this.name); // ❌ undefined (or error in strict mode)
+  }
+};
+
+obj.greet();
+
+// When a function is called as a method, this refers to the object before the dot
+const person = {
+  name: "Alice",
+  greet() {
+    console.log(`Hello, I'm ${this.name}`);
+  }
+};
+
+person.greet(); // this = person
