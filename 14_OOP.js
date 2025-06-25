@@ -55,3 +55,188 @@ p1.greet(); // Hi, I'm Alice, and I'm 30 years old.
 // You add a # symbol before naming property or method in order to make it private
 // A method or property in a class that can be acessed from outside that class is called a PUBLIC METHOD/PROPERTY
 // NOTE: field and property refer to the same thing and can be used interchangeably
+
+// INHERITANCE
+// Inheritance allows us to reuse code between classes without having to extensively duplicate code
+// With inheritance, a class can get all the properties and methods of another class
+// We call this class a CHILD class and the class it gains properties and methods from the PARENT class
+// We say that a CHILD class EXTENDS the PARENT class
+// The CHILD class can also have new methods and properties that the parent class doesn't have
+// It can also override methods and properties of the parent class. Overriding a method is called METHOD OVERRIDING
+// Basically, we use Inheritance when one class is a more specific type of another class
+// it uses extends to inherit from another class and super to call the parent class constructor or methods.
+// Example:
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    super.speak(); // Call parent method
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const d = new Dog("Rex");
+d.speak();
+// Rex makes a sound.
+// Rex barks.
+
+// POLYMORPHISM
+
+/*
+ What is Polymorphism?
+
+Polymorphism (from Greek: "poly" = many, "morph" = form) means "many forms."
+It allows objects of different types to be treated through a common interface,
+typically by sharing method names.
+
+In JavaScript, polymorphism is achieved through:
+
+1. Method Overriding: Subclasses override a method defined in a parent class.
+2. Duck Typing: If an object has the expected method (e.g., .print()), we treat it as valid.
+
+This makes our code flexible, reusable, and easier to extend.
+ Benefits:
+- Shared interface across types (e.g., `.calculateSalary()` on different employee types)
+- Simplifies code by removing the need for manual type checking
+- Enables scalable and maintainable design patterns
+
+Now, let’s demonstrate polymorphism using both:
+- Class-based inheritance
+- Duck typing (structural polymorphism)
+*/
+
+// CLASS-BASED POLYMORPHISM EXAMPLE
+
+// Base class: Employee
+class Employee {
+  constructor(name) {
+    this.name = name; // Common property for all employees
+  }
+
+  // Default method (to be overridden)
+  calculateSalary() {
+    return 0; // Placeholder logic
+  }
+}
+
+// Subclass 1: Full-time employee
+class FullTimeEmployee extends Employee {
+  constructor(name, monthlySalary) {
+    super(name); // Call the base class constructor
+    this.monthlySalary = monthlySalary;
+  }
+
+  // Override: Full-time employees get a fixed monthly salary
+  calculateSalary() {
+    return this.monthlySalary;
+  }
+}
+
+// Subclass 2: Freelancer
+class Freelancer extends Employee {
+  constructor(name, hourlyRate, hoursWorked) {
+    super(name);
+    this.hourlyRate = hourlyRate;
+    this.hoursWorked = hoursWorked;
+  }
+
+  // Override: Freelancers are paid hourly
+  calculateSalary() {
+    return this.hourlyRate * this.hoursWorked;
+  }
+}
+
+// Subclass 3: Intern
+class Intern extends Employee {
+  constructor(name, stipend) {
+    super(name);
+    this.stipend = stipend;
+  }
+
+  // Override: Interns receive a fixed stipend
+  calculateSalary() {
+    return this.stipend;
+  }
+}
+
+// POLYMORPHISM IN ACTION
+
+
+// Create an array of various employee types
+const employees = [
+  new FullTimeEmployee("Alice", 5000),     // Fixed monthly
+  new Freelancer("Bob", 50, 120),          // $50/hr * 120 hrs
+  new Intern("Charlie", 1000)              // Fixed stipend
+];
+
+// Loop through all employees and call the same method
+// Even though each object is a different class, the method behaves correctly
+for (const emp of employees) {
+  console.log(`${emp.name}'s salary is $${emp.calculateSalary()}`);
+}
+
+// Output:
+// Alice's salary is $5000
+// Bob's salary is $6000
+// Charlie's salary is $1000
+
+// DUCK TYPING POLYMORPHISM EXAMPLE
+
+
+// Any object that implements a `.print()` method can be passed here
+// No inheritance required!
+
+const printer = {
+  print() {
+    console.log("Printing from printer");
+  }
+};
+
+const pdf = {
+  print() {
+    console.log("Printing PDF document");
+  }
+};
+
+const image = {
+  print() {
+    console.log("Printing image file");
+  }
+};
+
+// This function accepts any object with a .print() method
+function executePrintJob(printable) {
+  printable.print(); // We don't care what the object is — only that it has a .print() method
+}
+
+// Duck typing in action
+executePrintJob(printer); // Output: Printing from printer
+executePrintJob(pdf);     // Output: Printing PDF document
+executePrintJob(image);   // Output: Printing image file
+
+
+// SUMMARY OF POLYMORPHISM
+//
+// - Polymorphism allows different object types to be used interchangeably.
+// - Enables calling the same method on different objects with varying behavior.
+// - Implemented in JS through:
+//    Class inheritance + method overriding
+//    Duck typing (structural, interface-based)
+//
+// These concepts power flexible, modular, and scalable codebases.
+
+// TESTING CLASSES
+// You can test classes the same way you test other objects, it's the same as normal tests
+
+// BUILT IN CLASSES
+// These are classes that are provided by the language
+// An example of abuilt in class is Date()
