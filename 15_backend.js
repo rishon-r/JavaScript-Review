@@ -10,3 +10,8 @@
 // The message the backend sends back to us is called a RESPONSE
 // For every single REQUEST we send, we get exacctly 1 repsonse back from the back-end
 // This is called the REQUEST-RESPONSE CYCLE: it entails 1 request and 1 response
+
+// PROMISES
+// Promises are a better way to handle asynchronous code
+// They work similar to the done() function that Jasmine provides
+// They let us wait for some code to finish before moving on to the next step
