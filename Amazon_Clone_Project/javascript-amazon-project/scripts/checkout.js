@@ -26,7 +26,10 @@ async function loadPage(){
   console.log('Load Page');
 
   await loadProductsFetch();
-  
+
+  renderOrderSummary();
+  renderPaymentSummary();
+
   return 'value2';
 }
 loadPage().then(() => {
@@ -34,11 +37,13 @@ loadPage().then(() => {
 })
 
 
-
+/*
 loadProductsFetch().then(() => {
   renderOrderSummary();
   renderPaymentSummary();
 });
+*/
+
 
 
 
