@@ -87,6 +87,6 @@ export function renderPaymentSummary(){
         console.log('Unexpected error. Try again later.');
       }
 
-      window.location.href = 'orders.html';
+      window.location.href = 'orders.html'; // Used to access the URL at the top of a page using the window object
     });
 }
