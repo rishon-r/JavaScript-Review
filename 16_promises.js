@@ -204,3 +204,30 @@ myNewPromise
     // The .catch() method runs if the Promise is rejected
     console.error("Catch block:", error);
   });
+
+// More on the .catch() method
+// .catch() is a method on a Promise that allows you to handle errors (i.e., rejections) that occur during the execution of asynchronous code.
+// It’s the Promise equivalent of a try/catch block.
+// Example Syntax:
+/*
+somePromise()
+  .then(result => {
+    // handle result
+  })
+  .catch(error => {
+    // handle error
+  });
+*/
+// Working example
+
+/*
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Data:', data);
+  })
+  .catch(error => {
+    console.error('Something went wrong:', error);
+  });
+
+*/
