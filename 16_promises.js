@@ -231,3 +231,22 @@ fetch('https://api.example.com/data')
   });
 
 */
+
+// AN EXAMPLE OF HOW REJECT WORKS WITH PROMISES:
+function getUser(id) {
+  return new Promise((resolve, reject) => {
+    if (id === 0) {
+      reject(new Error("Invalid user ID"));
+    } else {
+      resolve({ id, name: "Rishon" });
+    }
+  });
+}
+
+getUser(0)
+  .then(user => {
+    console.log("User found:", user);
+  })
+  .catch(err => {
+    console.error("Promise rejected:", err.message);
+  });

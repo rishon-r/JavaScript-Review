@@ -23,9 +23,13 @@ new Promise((resolve) => {
 */
 
 async function loadPage(){
-  console.log('Load Page');
-
-  await loadProductsFetch();
+  try{
+    await loadProductsFetch();
+  }
+  catch (error) {
+    console.log("Unexpected Error: please try later.")
+  }
+  
 
   renderOrderSummary();
   renderPaymentSummary();
