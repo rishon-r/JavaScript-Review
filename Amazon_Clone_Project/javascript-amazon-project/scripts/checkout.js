@@ -22,6 +22,18 @@ new Promise((resolve) => {
 });
 */
 
+async function loadPage(){
+  console.log('Load Page');
+
+  await loadProductsFetch();
+  
+  return 'value2';
+}
+loadPage().then(() => {
+  console.log('next step');
+})
+
+
 
 loadProductsFetch().then(() => {
   renderOrderSummary();
